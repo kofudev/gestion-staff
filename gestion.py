@@ -1,6 +1,7 @@
 from hmac import new
 import json
 import os
+import time
 
 Savefile = "sauvgarde.json"
 
@@ -14,15 +15,16 @@ else:
     with open(Savefile, "w") as f:
         json.dump(stafflist, f)
 
-print("Bienvenue dans le programme de gestion des staff !")
-print("1. Ajouter un staff")
-print("2. Supprimer un staff")
-print("3. Afficher la liste des staff")
-print("4. selectionner un staff")
-print("5. Quitter le programme")
+
 
 
 while True:
+    print("Bienvenue dans le programme de gestion des staff !")
+    print("1. Ajouter un staff")
+    print("2. Supprimer un staff")
+    print("3. Afficher la liste des staff")
+    print("4. selectionner un staff")
+    print("5. Quitter le programme")
     choix = input("Veuillez entrer votre choix (1-5) : ")
     if choix == "1":
         nom = input("Entrez le nom du staff : ")
@@ -55,7 +57,8 @@ while True:
         else:
             print("Liste des staff :")
             for staff in stafflist:
-                print(f"- {staff['nom']} {staff['role']}")
+                print(f"- {staff['nom']} {staff['role']} {staff['date']} {staff['objectif']} {staff['motivation']}")
+                time.sleep(3)
     elif choix == "4":
         nom = input("Entrez le nom du staff à sélectionner : ")
         staff_to_select = None
