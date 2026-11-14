@@ -10,4 +10,5 @@ if os.path.exists(Savefile):
     with open(Savefile, "r") as f:
         stafflist = json.load(f)
 else:
-    os.create(Savefile)
+    with open(Savefile, "w") as f:
+        json.dump(stafflist, f)
