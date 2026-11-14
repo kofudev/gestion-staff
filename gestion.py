@@ -1,4 +1,4 @@
-from hmac import new
+
 import json
 import os
 import time
@@ -58,7 +58,7 @@ while True:
             print("Liste des staff :")
             for staff in stafflist:
                 print(f"- {staff['nom']} {staff['role']} {staff['date']} {staff['objectif']} {staff['motivation']}")
-                time.sleep(3)
+                input("Appuyez sur Entrée pour continuer...")
     elif choix == "4":
         nom = input("Entrez le nom du staff à sélectionner : ")
         staff_to_select = None
