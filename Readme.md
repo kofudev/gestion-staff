@@ -68,7 +68,7 @@ git clone https://github.com/VOTRE_PSEUDO_GITHUB/StaffManager.git
 
 ## Stockage des données
 
-Les informations sont enregistrées localement dans un fichier `staffs.json`.
+Les informations sont enregistrées localement dans un fichier `sauvgarde.json`.
 
 Le système est conçu pour conserver les membres entre les différentes sessions et permettre l'ajout de nouveaux membres sans écraser les données existantes.
 
