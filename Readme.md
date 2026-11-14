@@ -45,7 +45,7 @@ Python 3 doit être installé sur votre ordinateur.
 Clonez le dépôt :
 
 ```bash
-git clone https://github.com/UTILISATEUR/StaffManager.git
+git clone https://github.com/kofudev/StaffManager.git
 ```
 
 Accédez au dossier du projet :
