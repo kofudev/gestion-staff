@@ -20,40 +20,24 @@ print("3. Afficher la liste des staff")
 print("4. selectionner un staff")
 print("5. Quitter le programme")
 
-choix = input("Veuillez entrer votre choix (1-5) : ")
-while true:
-    if choix == 1:
+
+while True:
+    choix = input("Veuillez entrer votre choix (1-5) : ")
+    if choix == "1":
         nom = input("Entrez le nom du staff : ")
         prenom = input("Entrez le prénom du staff : ")
-        age = input("Entrez l'âge du staff : ")
-        staff = {"nom": nom, "prenom": prenom, "age": age}
-        stafflist.append(staff)
+        stafflist.append({"nom": nom, "prenom": prenom})
         with open(Savefile, "w") as f:
             json.dump(stafflist, f)
-        print("Le staff a été ajouté avec succès !")
-    elif choix == 2:
+        print(f"Le staff {nom} {prenom} a été ajouté avec succès !")
+    elif choix == "2":
         nom = input("Entrez le nom du staff à supprimer : ")
-        for staff in stafflist:
-            if staff["nom"] == nom:
-                stafflist.remove(staff)
-                with open(Savefile, "w") as f:
-                    json.dump(stafflist, f)
-                print("Le staff a été supprimé avec succès !")
-                break
+        prenom = input("Entrez le prénom du staff à supprimer : ")
+        staff_to_remove = {"nom": nom, "prenom": prenom}
+        if staff_to_remove in stafflist:
+            stafflist.remove(staff_to_remove)
+            with open(Savefile, "w") as f:
+                json.dump(stafflist, f)
+            print(f"Le staff {nom} {prenom} a été supprimé avec succès !")
         else:
-            print("Le staff n'a pas été trouvé.")
-    elif choix == 3:
-        print("Liste des staff :")
-        for staff in stafflist:
-            print(f"{staff['nom']} {staff['prenom']}, {staff['age']} ans")
-    elif choix == 4:
-        nom = input("Entrez le nom du staff à sélectionner : ")
-        for staff in stafflist:
-            if staff["nom"] == nom:
-                print(f"Staff sélectionné : {staff['nom']} {staff['prenom']}, {staff['age']} ans")
-                break
-        else:
-            print("Le staff n'a pas été trouvé.")
-    elif choix == 5:
-        print("Au revoir !")
-    break
+            print(f"Le staff {nom} {prenom} n'existe pas dans la liste.")
