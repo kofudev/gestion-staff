@@ -45,13 +45,13 @@ Python 3 doit être installé sur votre ordinateur.
 Clonez le dépôt :
 
 ```bash
-git clone https://github.com/kofudev/StaffManager.git
+git clone https://github.com/kofudev/gestion-staff.git
 ```
 
 Accédez au dossier du projet :
 
 ```bash
-cd StaffManager
+cd gestion-staff
 ```
 
 Lancez l'application :
@@ -63,7 +63,7 @@ python gestion.py
 *Attention : cette commande correspond à mon dépôt GitHub. Si vous créez votre propre dépôt pour héberger ou reproduire ce projet, vous devrez adapter l'URL en remplaçant `VOTRE_PSEUDO_GITHUB` par votre identifiant GitHub.*
 
 ```bash
-git clone https://github.com/VOTRE_PSEUDO_GITHUB/StaffManager.git
+git clone https://github.com/VOTRE_PSEUDO_GITHUB/gestion-staff.git
 ```
 
 ## Stockage des données
