@@ -57,7 +57,7 @@ cd StaffManager
 Lancez l'application :
 
 ```bash
-python main.py
+python gestion.py
 ```
 
 *Adaptez l'URL du dépôt et le nom du fichier principal si nécessaire.*
