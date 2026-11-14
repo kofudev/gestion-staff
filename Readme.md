@@ -1,110 +1,90 @@
 # StaffManager
 
-Un gestionnaire de personnel développé en **Python**, permettant de centraliser, consulter et modifier les informations des membres d'une équipe.
+StaffManager est un outil de gestion d'équipe développé en **Python**, permettant de centraliser, organiser et suivre les informations des membres d'un staff depuis une interface en terminal.
 
-## Présentation
+Le projet a été réalisé à des fins éducatives et peut être librement étudié ou reproduit comme exercice de programmation.
 
-StaffManager est un projet personnel réalisé pour apprendre et approfondir les bases de Python à travers une application concrète.
+## Fonctionnalités
 
-L'objectif est de développer un système de gestion du staff fonctionnant directement dans un terminal, avec une sauvegarde persistante des données au format JSON.
+- Ajouter de nouveaux membres.
+- Consulter la liste des membres enregistrés.
+- Modifier ou supprimer un membre.
+- Consulter les informations individuelles.
+- Éviter les doublons.
+- Sauvegarder les données de manière persistante.
+- Retrouver les membres enregistrés après chaque redémarrage.
 
-Le programme doit permettre de retrouver les informations enregistrées après chaque redémarrage, sans perdre les membres déjà ajoutés.
+## Informations des membres
 
-## Fonctionnalités prévues
-
-### Gestion des membres
-- Ajouter un nouveau membre du staff.
-- Afficher la liste complète des membres.
-- Consulter les informations d'un membre.
-- Modifier les informations existantes.
-- Supprimer un membre.
-- Empêcher les doublons.
-
-### Informations enregistrées
-
-Chaque membre possède les informations suivantes :
+Chaque membre peut disposer des informations suivantes :
 
 | Information | Description |
 |---|---|
 | Nom | Pseudonyme du membre |
 | Date d'arrivée | Date d'intégration dans l'équipe |
-| Rôle actuel | Grade actuellement occupé |
-| Rôle souhaité | Grade maximum visé |
-| Motivation | Objectifs et motivations du membre |
+| Rôle actuel | Fonction actuellement occupée |
+| Rôle souhaité | Fonction ou grade visé |
+| Motivation | Motivations et objectifs personnels |
 
-### Sauvegarde des données
-- Enregistrement des données dans `staffs.json`.
-- Chargement automatique des données au démarrage.
-- Création d'une liste vide lors de la première utilisation.
-- Conservation des données entre les sessions.
-- Sauvegarde des modifications.
+## Technologies utilisées
 
-## Technologies
+- **Python 3** — Développement de l'application.
+- **JSON** — Stockage et récupération des données.
+- **CLI** — Interface en ligne de commande.
 
-- **Python 3** — Langage principal.
-- **JSON** — Stockage des informations.
-- **Terminal** — Interface utilisateur.
+Aucune dépendance externe n'est nécessaire.
 
-Le projet utilise uniquement les bibliothèques standard de Python.
-
-## Installation et utilisation
+## Installation
 
 ### Prérequis
-- Python 3 installé sur l'ordinateur.
 
-### Lancement
+Python 3 doit être installé sur votre ordinateur.
 
-Depuis le dossier du projet :
+### Exécution
+
+Clonez le dépôt :
+
+```bash
+git clone https://github.com/UTILISATEUR/StaffManager.git
+```
+
+Accédez au dossier du projet :
+
+```bash
+cd StaffManager
+```
+
+Lancez l'application :
 
 ```bash
 python main.py
 ```
 
-*La commande suppose que le fichier principal est nommé `main.py`.*
+*Adaptez l'URL du dépôt et le nom du fichier principal si nécessaire.*
 
-## Organisation prévue
+## Stockage des données
 
-```text
-StaffManager/
-├── main.py
-├── staffs.json
-└── README.md
-```
+Les informations sont enregistrées localement dans un fichier `staffs.json`.
 
-Le fichier JSON pourra être créé automatiquement au premier enregistrement.
+Le système est conçu pour conserver les membres entre les différentes sessions et permettre l'ajout de nouveaux membres sans écraser les données existantes.
 
-## Objectifs pédagogiques
+## Utilisation et reproduction
 
-Ce projet permet de pratiquer :
+StaffManager peut être utilisé comme outil de gestion d'une petite équipe ou comme support éducatif pour découvrir les principes fondamentaux de Python.
 
-- Variables et types de données.
-- Listes et dictionnaires.
-- Boucles `for` et `while`.
-- Conditions `if`, `elif` et `else`.
-- Fonctions et organisation du code.
-- Manipulation des fichiers.
-- Lecture et écriture JSON.
-- Gestion des erreurs.
-- Validation des saisies utilisateur.
+Les personnes souhaitant apprendre la programmation peuvent également essayer de reproduire son fonctionnement, de développer leur propre version ou d'y intégrer de nouvelles fonctionnalités.
 
-## Évolutions possibles
+Le projet est fourni à des fins éducatives. Aucune garantie particulière n'est apportée concernant son utilisation.
 
-- Recherche d'un membre par pseudonyme.
+## Évolutions envisagées
+
+- Recherche et filtrage des membres.
 - Calcul automatique de l'ancienneté.
-- Historique des changements de grade.
-- Gestion des avertissements.
+- Historique des promotions.
 - Statistiques de l'équipe.
 - Interface graphique.
-- Migration vers une base de données SQLite.
+- Stockage avec SQLite.
 
-## État du projet
+---
 
-**En développement**
-
-Le projet est réalisé progressivement dans un objectif d'apprentissage. Les fonctionnalités présentées constituent la feuille de route et ne sont pas nécessairement toutes implémentées.
-
-## Licence
-
-Projet personnel à vocation éducative.
-
-<sub>Entièrement développé par Kofu, sans l'aide d'outils externes.</sub>
+<sub>Développé par **Kofu** — Code réalisé sans assistance d'outils externes. Projet à vocation éducative.</sub>
