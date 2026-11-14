@@ -60,7 +60,11 @@ Lancez l'application :
 python gestion.py
 ```
 
-*Adaptez l'URL du dépôt et le nom du fichier principal si nécessaire.*
+*Attention : cette commande correspond à mon dépôt GitHub. Si vous créez votre propre dépôt pour héberger ou reproduire ce projet, vous devrez adapter l'URL en remplaçant `VOTRE_PSEUDO_GITHUB` par votre identifiant GitHub.*
+
+```bash
+git clone https://github.com/VOTRE_PSEUDO_GITHUB/StaffManager.git
+```
 
 ## Stockage des données
 
