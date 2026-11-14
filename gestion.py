@@ -1,3 +1,4 @@
+from hmac import new
 import json
 import os
 
@@ -33,17 +34,21 @@ while True:
         stafflist.append({"nom": nom, "age": age, "date": date, "role": role, "objectif": ojectif, "motivation": motivation})
         with open(Savefile, "w") as f:
             json.dump(stafflist, f)
-        print(f"Le staff {nom} {prenom} a été ajouté avec succès !")
+        print(f"Le staff {nom} a été ajouté avec succès !")
     elif choix == "2":
         nom = input("Entrez le nom du staff à supprimer : ")
-        staff_to_remove = {"nom": nom,}
-        if staff_to_remove in stafflist:
+        staff_to_remove = None
+        for staff in stafflist:
+            if staff["nom"] == nom:
+                staff_to_remove = staff
+                break
+        if staff_to_remove is not None:
             stafflist.remove(staff_to_remove)
             with open(Savefile, "w") as f:
                 json.dump(stafflist, f)
-            print(f"Le staff {nom} {role}a été supprimé avec succès !")
+            print(f"Le staff {nom} a été supprimé avec succès !")
         else:
-            print(f"Le staff {nom} {role}n'existe pas dans la liste.")
+            print(f"Le staff {nom} n'existe pas dans la liste.")
     elif choix == "3":
         if not stafflist:
             print("La liste des staff est vide.")
@@ -53,13 +58,66 @@ while True:
                 print(f"- {staff['nom']} {staff['role']}")
     elif choix == "4":
         nom = input("Entrez le nom du staff à sélectionner : ")
-        staff_to_select = {"nom": nom}
-        if staff_to_select in stafflist:
-            print(f"Le staff {nom}  a été sélectionné avec succès !")
-            print(f"que souhaiter vous faire avec {nom} ")
-            print("1. change son nom")
-            print("2. changer son role")
-            print("3. changer sa date d'adesion")
+        staff_to_select = None
+
+        for staff in stafflist:
+            if staff["nom"] == nom:
+                staff_to_select = staff
+                break
+
+        if staff_to_select is not None:
+            print(f"Le staff {nom} a été sélectionné avec succès !")
+            print(f"Que souhaitez-vous faire avec {nom} ?")
+            print("1. Changer son nom")
+            print("2. Changer son rôle")
+            print("3. Changer sa date d'adhésion")
+            print("4. Changer son objectif de rôle")
+            print("5. Changer ses motivations")
+            print("6. Ne rien faire")
+
+            select = input(f"Choisissez une action pour {nom} : ")
+
+            if select == "1":
+                new_nom = input("Entrez le nouveau nom du staff : ")
+                staff_to_select["nom"] = new_nom
+                with open(Savefile, "w") as f:
+                    json.dump(stafflist, f)
+                print(f"Le nom du staff {nom} a été changé en {new_nom} avec succès !")
+
+            elif select == "2":
+                new_role = input("Entrez le nouveau rôle du staff : ")
+                staff_to_select["role"] = new_role
+                with open(Savefile, "w") as f:
+                    json.dump(stafflist, f)
+                print(f"Le rôle du staff {nom} a été changé en {new_role} avec succès !")
+
+            elif select == "3":
+                new_date = input("Entrez la nouvelle date d'adhésion du staff (format : AAAA-MM-JJ) : ")
+                staff_to_select["date"] = new_date
+                with open(Savefile, "w") as f:
+                    json.dump(stafflist, f)
+                print(f"La date d'adhésion du staff {nom} a été changée en {new_date} avec succès !")
+
+            elif select == "4":
+                new_objectif = input("Entrez le nouvel objectif du staff : ")
+                staff_to_select["objectif"] = new_objectif
+                with open(Savefile, "w") as f:
+                    json.dump(stafflist, f)
+                print(f"L'objectif du staff {nom} a été changé en {new_objectif} avec succès !")
+
+            elif select == "5":
+                new_motivation = input("Entrez les nouvelles motivations du staff : ")
+                staff_to_select["motivation"] = new_motivation
+                with open(Savefile, "w") as f:
+                    json.dump(stafflist, f)
+                print(f"Les motivations du staff {nom} ont été changées avec succès !")
+
+            elif select == "6":
+                print(f"Aucune modification n'a été effectuée pour le staff {nom}.")
+
+            else:
+                print("Choix invalide.")
+
         else:
             print(f"Le staff {nom} n'existe pas dans la liste.")
     elif choix == "5":
