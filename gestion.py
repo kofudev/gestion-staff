@@ -2,6 +2,7 @@
 import json
 import os
 import time
+from datetime import datetime
 
 Savefile = "sauvgarde.json"
 
@@ -26,16 +27,40 @@ while True:
     print("4. selectionner un staff")
     print("5. Quitter le programme")
     choix = input("Veuillez entrer votre choix (1-5) : ")
+
     if choix == "1":
         nom = input("Entrez le nom du staff : ")
         age = input("Entrez l'âge du staff : ")
-        date = input("Entrez la date d'embauche du staff (format : AAAA-MM-JJ) : ")
+
+        while True:
+            date = input("Entrez la date d'embauche (AAAA-MM-JJ) : ")
+
+            if not date:
+                date = time.strftime("%Y-%m-%d")
+                break
+
+            try:
+                datetime.strptime(date, "%Y-%m-%d")
+                break
+            except ValueError:
+                print("Date invalide ! Réessayez au format AAAA-MM-JJ.")
+
         role = input("Entrez le rôle du staff : ")
-        ojectif = input("Entrez le role visée pare le staff : ")
-        motivation = input("Entrez les motivation du staff")
-        stafflist.append({"nom": nom, "age": age, "date": date, "role": role, "objectif": ojectif, "motivation": motivation})
+        objectif = input("Entrez le rôle visé par le staff : ")
+        motivation = input("Entrez les motivations du staff : ")
+
+        stafflist.append({
+            "nom": nom,
+            "age": age,
+            "date": date,
+            "role": role,
+            "objectif": objectif,
+            "motivation": motivation
+        })
+
         with open(Savefile, "w") as f:
             json.dump(stafflist, f)
+
         print(f"Le staff {nom} a été ajouté avec succès !")
     elif choix == "2":
         nom = input("Entrez le nom du staff à supprimer : ")
