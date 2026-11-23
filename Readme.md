@@ -92,3 +92,4 @@ Le projet est fourni à des fins éducatives. Aucune garantie particulière n'es
 ---
 
 <sub>Développé par **Kofu** — Code réalisé sans assistance d'outils externes. Projet à vocation éducative.</sub>
+Kofu

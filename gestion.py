@@ -153,3 +153,4 @@ while True:
         break
     else:
         print("Choix invalide. Veuillez entrer un nombre entre 1 et 5.")
+# Kofu
